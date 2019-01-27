@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190119234103_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190120112335_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190120130437_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190120164320_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190120212325_InitialCreate.cs" />
+    <Compile Remove="Migrations\20190125233048_Initial.cs" />
+    <Compile Remove="Migrations\20190126131222_InitilCrat.cs" />
+    <Compile Remove="Migrations\20190126134303_Initial.cs" />
+    <Compile Remove="Migrations\20190126140646_Initial.cs" />
+    <Compile Remove="Migrations\20190126140834_Initial.cs" />
+    <Compile Remove="Migrations\20190126141206_Initial.cs" />
+    <Compile Remove="Migrations\20190126144100_Initial.cs" />
+    <Compile Remove="Migrations\20190126155135_Initial.cs" />
+    <Compile Remove="Migrations\20190126163657_Initial.cs" />
+    <Compile Remove="Migrations\20190126200543_Initial.cs" />
+    <Compile Remove="Migrations\20190126201110_Initial.cs" />
+    <Compile Remove="Migrations\20190126202240_Initial.cs" />
+    <Compile Remove="Migrations\20190126202443_Initial.cs" />
+    <Compile Remove="Migrations\20190127165220_Initial.cs" />
+    <Compile Remove="Migrations\20190127165349_Initial.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Movies.Api.Contracts\Movies.Api.Contracts.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.EntityFrameworkCore">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.entityframeworkcore\2.2.0\lib\netstandard2.0\Microsoft.EntityFrameworkCore.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Console">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.logging.console\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Logging.Console.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

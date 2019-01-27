@@ -1,0 +1,916 @@
+27-Jan-2019 19:56:28.190 +00:00 [INF] Starting web host
+27-Jan-2019 19:56:30.940 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 19:56:31.513 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:56:31.630 +00:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:56:31.645 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:56:31.654 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 19:56:33.592 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 19:56:33.748 +00:00 [INF] Request finished in 158.5952ms 301 
+27-Jan-2019 19:56:33.753 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 19:56:33.881 +00:00 [INF] Request finished in 128.0394ms 200 text/html
+27-Jan-2019 19:56:33.902 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 19:56:33.973 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 19:56:33.975 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 19:56:34.047 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 19:56:34.047 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 19:56:34.056 +00:00 [INF] Request finished in 153.7284ms 200 text/css
+27-Jan-2019 19:56:34.071 +00:00 [INF] Request finished in 95.7249ms 200 application/javascript
+27-Jan-2019 19:56:34.079 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 19:56:34.091 +00:00 [INF] Request finished in 117.9617ms 200 application/javascript
+27-Jan-2019 19:56:35.404 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 19:56:35.602 +00:00 [INF] Request finished in 197.9761ms 200 application/json;charset=utf-8
+27-Jan-2019 19:56:41.966 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 19:56:42.004 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:56:42.045 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 19:56:42.290 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 19:56:42.321 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:56:42.620 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:56:42.662 +00:00 [INF] Executed DbCommand (15ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 19:56:42.728 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 417.6403ms.
+27-Jan-2019 19:56:42.748 +00:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+27-Jan-2019 19:56:42.769 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 712.82450000000006ms
+27-Jan-2019 19:56:42.771 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:56:42.775 +00:00 [INF] Request finished in 809.0648ms 404 application/problem+json; charset=utf-8
+27-Jan-2019 19:56:54.170 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=12  
+27-Jan-2019 19:56:54.173 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:56:54.177 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 19:56:54.219 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 19:56:54.226 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:56:54.236 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:56:54.244 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 19:56:54.269 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 42.9866ms.
+27-Jan-2019 19:56:54.276 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Movies.Api.Contracts.Models.MovieDTO, Movies.Api.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+27-Jan-2019 19:56:54.288 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 103.81540000000001ms
+27-Jan-2019 19:56:54.294 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:56:54.296 +00:00 [INF] Request finished in 126.348ms 200 application/json; charset=utf-8
+27-Jan-2019 19:57:00.737 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aqu  
+27-Jan-2019 19:57:00.741 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:57:00.744 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 19:57:00.778 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 19:57:00.783 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:57:00.787 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:57:00.795 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__query_Title_0='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 19:57:00.804 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 20.517500000000002ms.
+27-Jan-2019 19:57:00.807 +00:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+27-Jan-2019 19:57:00.814 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 62.169500000000006ms
+27-Jan-2019 19:57:00.819 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:57:00.825 +00:00 [INF] Request finished in 87.7657ms 404 application/problem+json; charset=utf-8
+27-Jan-2019 19:58:03.899 +00:00 [INF] Starting web host
+27-Jan-2019 19:58:05.936 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 19:58:06.450 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:58:06.548 +00:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:58:06.565 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:58:06.571 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 19:58:08.512 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 19:58:08.717 +00:00 [INF] Request finished in 206.3675ms 301 
+27-Jan-2019 19:58:08.724 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 19:58:08.846 +00:00 [INF] Request finished in 122.6406ms 200 text/html
+27-Jan-2019 19:58:08.857 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 19:58:08.902 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 19:58:08.903 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 19:58:08.960 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 19:58:08.960 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 19:58:08.968 +00:00 [INF] Request finished in 64.6205ms 200 application/javascript
+27-Jan-2019 19:58:08.974 +00:00 [INF] Request finished in 116.5639ms 200 text/css
+27-Jan-2019 19:58:08.983 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 19:58:08.993 +00:00 [INF] Request finished in 90.1602ms 200 application/javascript
+27-Jan-2019 19:58:10.258 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 19:58:10.443 +00:00 [INF] Request finished in 184.7916ms 200 application/json;charset=utf-8
+27-Jan-2019 19:58:16.037 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aqu  
+27-Jan-2019 19:58:16.076 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:58:16.129 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 19:58:16.399 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 19:58:16.439 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:58:16.626 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:58:16.659 +00:00 [INF] Executed DbCommand (8ms) [Parameters=[@__query_Title_0='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 19:58:16.725 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.NotFoundResult in 307.7138ms.
+27-Jan-2019 19:58:16.743 +00:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+27-Jan-2019 19:58:16.762 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 623.3224ms
+27-Jan-2019 19:58:16.768 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 19:58:16.772 +00:00 [INF] Request finished in 735.7449ms 404 application/problem+json; charset=utf-8
+27-Jan-2019 19:58:28.756 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/movies/top  
+27-Jan-2019 19:58:28.760 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.TopMoviesController.GetTopFiveMovies (Movies.Api)'
+27-Jan-2019 19:58:28.772 +00:00 [INF] Route matched with {action = "GetTopFiveMovies", controller = "TopMovies"}. Executing action Movies.Api.Controllers.TopMoviesController.GetTopFiveMovies (Movies.Api)
+27-Jan-2019 19:58:28.812 +00:00 [INF] Executing action method Movies.Api.Controllers.TopMoviesController.GetTopFiveMovies (Movies.Api) - Validation state: "Valid"
+27-Jan-2019 19:58:28.826 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 19:58:28.860 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 19:58:28.874 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__p_0='?'], CommandType='"Text"', CommandTimeout='30']
+SELECT "movie"."Id", (
+    SELECT AVG(CAST("r0"."Rating" AS REAL))
+    FROM "Ratings" AS "r0"
+    WHERE "movie"."Id" = "r0"."MovieId"
+) AS "AverageRating", "movie"."Title", "movie"."YearOfRelease"
+FROM "Movies" AS "movie"
+ORDER BY (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "movie"."Id" = "r"."MovieId"
+) DESC, "movie"."Title"
+LIMIT @__p_0
+27-Jan-2019 19:58:28.915 +00:00 [INF] Executed action method Movies.Api.Controllers.TopMoviesController.GetTopFiveMovies (Movies.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 99.5849ms.
+27-Jan-2019 19:58:28.924 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Movies.Api.Contracts.Models.MovieDTO, Movies.Api.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+27-Jan-2019 19:58:28.939 +00:00 [INF] Executed action Movies.Api.Controllers.TopMoviesController.GetTopFiveMovies (Movies.Api) in 155.6725ms
+27-Jan-2019 19:58:28.944 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.TopMoviesController.GetTopFiveMovies (Movies.Api)'
+27-Jan-2019 19:58:28.950 +00:00 [INF] Request finished in 193.8453ms 200 application/json; charset=utf-8
+27-Jan-2019 20:09:16.178 +00:00 [INF] Starting web host
+27-Jan-2019 20:09:18.375 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:09:18.914 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:09:19.007 +00:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:09:19.027 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:09:19.039 +00:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:09:20.741 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:09:20.934 +00:00 [INF] Request finished in 195.1508ms 301 
+27-Jan-2019 20:09:20.952 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:09:21.073 +00:00 [INF] Request finished in 121.1867ms 200 text/html
+27-Jan-2019 20:09:21.083 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:09:21.185 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:09:21.185 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:09:21.230 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:09:21.238 +00:00 [INF] Request finished in 154.4524ms 200 text/css
+27-Jan-2019 20:09:21.240 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:09:21.252 +00:00 [INF] Request finished in 66.3489ms 200 application/javascript
+27-Jan-2019 20:09:21.269 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:09:21.279 +00:00 [INF] Request finished in 93.5874ms 200 application/javascript
+27-Jan-2019 20:09:22.544 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:09:22.739 +00:00 [INF] Request finished in 195.5251ms 200 application/json;charset=utf-8
+27-Jan-2019 20:09:32.334 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:09:32.380 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:09:32.424 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:09:32.657 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:09:32.690 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:09:32.882 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:09:32.920 +00:00 [INF] Executed DbCommand (10ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:09:32.982 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 550.4129ms
+27-Jan-2019 20:09:32.989 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:09:32.995 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:09:33.134 +00:00 [INF] Request finished in 800.1094ms 500 text/html; charset=utf-8
+27-Jan-2019 20:10:38.310 +00:00 [INF] Starting web host
+27-Jan-2019 20:10:40.429 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:10:40.965 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:10:41.073 +00:00 [INF] Executed DbCommand (16ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:10:41.104 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:10:41.112 +00:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:10:42.789 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:10:42.986 +00:00 [INF] Request finished in 199.4722ms 301 
+27-Jan-2019 20:10:42.994 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:10:43.143 +00:00 [INF] Request finished in 148.544ms 200 text/html
+27-Jan-2019 20:10:43.157 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:10:43.208 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:10:43.210 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:10:43.288 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:10:43.307 +00:00 [INF] Request finished in 148.8533ms 200 text/css
+27-Jan-2019 20:10:43.309 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:10:43.310 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:10:43.332 +00:00 [INF] Request finished in 121.746ms 200 application/javascript
+27-Jan-2019 20:10:43.332 +00:00 [INF] Request finished in 123.6243ms 200 application/javascript
+27-Jan-2019 20:10:44.688 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:10:44.909 +00:00 [INF] Request finished in 221.2294ms 200 application/json;charset=utf-8
+27-Jan-2019 20:10:48.847 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:10:48.886 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:10:48.940 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:10:49.195 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:10:49.231 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:10:49.399 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:10:49.442 +00:00 [INF] Executed DbCommand (10ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:10:49.530 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 582.6137ms
+27-Jan-2019 20:10:49.539 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:10:49.551 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:10:49.738 +00:00 [INF] Request finished in 890.3564ms 500 text/html; charset=utf-8
+27-Jan-2019 20:10:53.663 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aqu  
+27-Jan-2019 20:10:53.666 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:10:53.671 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:10:53.706 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:10:53.714 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:10:53.723 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:10:53.733 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__query_Title_0='?' (Size = 3)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:10:53.756 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 77.6857ms
+27-Jan-2019 20:10:53.763 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:10:53.766 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:10:53.821 +00:00 [INF] Request finished in 157.8917ms 500 text/html; charset=utf-8
+27-Jan-2019 20:11:07.373 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=Aq  
+27-Jan-2019 20:11:07.380 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:11:07.383 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:11:07.406 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:11:07.420 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:11:07.428 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:11:07.439 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:11:07.455 +00:00 [INF] Return Movies with Titles: Aquaman
+27-Jan-2019 20:11:07.463 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 39.6739ms.
+27-Jan-2019 20:11:07.486 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Movies.Api.Contracts.Models.MovieDTO, Movies.Api.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+27-Jan-2019 20:11:07.504 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 114.8966ms
+27-Jan-2019 20:11:07.509 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:11:07.517 +00:00 [INF] Request finished in 143.8594ms 200 application/json; charset=utf-8
+27-Jan-2019 20:13:20.860 +00:00 [INF] Starting web host
+27-Jan-2019 20:13:22.987 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:13:23.511 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:13:23.630 +00:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:13:23.649 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:13:23.658 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:13:25.446 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:13:25.608 +00:00 [INF] Request finished in 166.6522ms 301 
+27-Jan-2019 20:13:25.614 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:13:25.771 +00:00 [INF] Request finished in 157.2034ms 200 text/html
+27-Jan-2019 20:13:25.790 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:13:25.890 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:13:25.893 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:13:25.945 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:13:25.948 +00:00 [INF] Request finished in 157.1788ms 200 text/css
+27-Jan-2019 20:13:25.950 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:13:25.958 +00:00 [INF] Request finished in 64.7471ms 200 application/javascript
+27-Jan-2019 20:13:25.968 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:13:25.976 +00:00 [INF] Request finished in 86.4088ms 200 application/javascript
+27-Jan-2019 20:13:27.223 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:13:27.430 +00:00 [INF] Request finished in 206.7923ms 200 application/json;charset=utf-8
+27-Jan-2019 20:13:31.769 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=Aq  
+27-Jan-2019 20:13:31.811 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:13:31.858 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:13:32.114 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:13:32.154 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:13:32.337 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:13:32.380 +00:00 [INF] Executed DbCommand (10ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:13:32.454 +00:00 [INF] Return Movies with Titles: Aquaman
+27-Jan-2019 20:13:32.461 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 325.51930000000004ms.
+27-Jan-2019 20:13:32.477 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Movies.Api.Contracts.Models.MovieDTO, Movies.Api.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+27-Jan-2019 20:13:32.496 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 630.2928ms
+27-Jan-2019 20:13:32.500 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:13:32.503 +00:00 [INF] Request finished in 733.3657ms 200 application/json; charset=utf-8
+27-Jan-2019 20:14:48.935 +00:00 [INF] Starting web host
+27-Jan-2019 20:14:50.966 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:14:51.490 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:14:51.601 +00:00 [INF] Executed DbCommand (18ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:14:51.619 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:14:51.628 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:14:53.210 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:14:53.356 +00:00 [INF] Request finished in 147.577ms 301 
+27-Jan-2019 20:14:53.361 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:14:53.495 +00:00 [INF] Request finished in 133.1306ms 200 text/html
+27-Jan-2019 20:14:53.588 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:14:53.589 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:14:53.590 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:14:53.631 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:14:53.637 +00:00 [INF] Request finished in 49.2999ms 200 text/css
+27-Jan-2019 20:14:53.647 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:14:53.654 +00:00 [INF] Request finished in 64.3468ms 200 application/javascript
+27-Jan-2019 20:14:53.670 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:14:53.682 +00:00 [INF] Request finished in 93.126ms 200 application/javascript
+27-Jan-2019 20:14:54.969 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:14:55.160 +00:00 [INF] Request finished in 190.9319ms 200 application/json;charset=utf-8
+27-Jan-2019 20:15:01.051 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:15:01.096 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:15:01.145 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:15:01.398 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:15:01.434 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:15:01.598 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:15:01.634 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@__ToLower_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__ToLower_0) > 0) OR (@__ToLower_0 = '')
+27-Jan-2019 20:15:01.702 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 545.0597ms
+27-Jan-2019 20:15:01.710 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:15:01.719 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:15:01.850 +00:00 [INF] Request finished in 799.744ms 500 text/html; charset=utf-8
+27-Jan-2019 20:15:09.036 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=Aq  
+27-Jan-2019 20:15:09.041 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:15:09.044 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:15:09.076 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:15:09.083 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:15:09.093 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:15:09.103 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__ToLower_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__ToLower_0) > 0) OR (@__ToLower_0 = '')
+27-Jan-2019 20:15:09.127 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 76.0844ms
+27-Jan-2019 20:15:09.140 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:15:09.151 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:15:09.234 +00:00 [INF] Request finished in 197.8351ms 500 text/html; charset=utf-8
+27-Jan-2019 20:16:18.000 +00:00 [INF] Starting web host
+27-Jan-2019 20:16:20.082 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:16:20.610 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:16:20.710 +00:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:16:20.728 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:16:20.738 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:16:22.417 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:16:22.562 +00:00 [INF] Request finished in 146.5205ms 301 
+27-Jan-2019 20:16:22.571 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:16:22.713 +00:00 [INF] Request finished in 140.9822ms 200 text/html
+27-Jan-2019 20:16:22.727 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:16:22.809 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:16:22.813 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:16:22.876 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:16:22.880 +00:00 [INF] Request finished in 152.8797ms 200 text/css
+27-Jan-2019 20:16:22.888 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:16:22.894 +00:00 [INF] Request finished in 81.5411ms 200 application/javascript
+27-Jan-2019 20:16:22.936 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:16:22.954 +00:00 [INF] Request finished in 144.7234ms 200 application/javascript
+27-Jan-2019 20:16:24.236 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:16:24.421 +00:00 [INF] Request finished in 185.3931ms 200 application/json;charset=utf-8
+27-Jan-2019 20:16:28.614 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:16:28.663 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:16:28.713 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:16:29.009 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:16:29.052 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:16:29.250 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:16:29.300 +00:00 [INF] Executed DbCommand (15ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:16:29.393 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 672.8913ms
+27-Jan-2019 20:16:29.399 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:16:29.403 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:16:29.535 +00:00 [INF] Request finished in 921.2285ms 500 text/html; charset=utf-8
+27-Jan-2019 20:17:21.033 +00:00 [INF] Starting web host
+27-Jan-2019 20:17:23.904 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:17:24.476 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:17:24.601 +00:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:17:24.617 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:17:24.624 +00:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:17:26.708 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:17:26.935 +00:00 [INF] Request finished in 230.6787ms 301 
+27-Jan-2019 20:17:26.938 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:17:27.083 +00:00 [INF] Request finished in 144.2402ms 200 text/html
+27-Jan-2019 20:17:27.104 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:17:27.133 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:17:27.138 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:17:27.203 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:17:27.203 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:17:27.218 +00:00 [INF] Request finished in 80.4813ms 200 application/javascript
+27-Jan-2019 20:17:27.232 +00:00 [INF] Request finished in 127.0715ms 200 text/css
+27-Jan-2019 20:17:27.247 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:17:27.261 +00:00 [INF] Request finished in 128.3042ms 200 application/javascript
+27-Jan-2019 20:17:28.712 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:17:28.919 +00:00 [INF] Request finished in 206.5391ms 200 application/json;charset=utf-8
+27-Jan-2019 20:17:36.529 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:17:36.577 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:17:36.624 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:17:36.838 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:17:36.861 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:17:37.049 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:17:37.084 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:17:37.248 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 613.7572ms
+27-Jan-2019 20:17:37.253 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:17:37.261 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at System.String.Join[T](Char separator, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:17:37.424 +00:00 [INF] Request finished in 895.0404ms 500 text/html; charset=utf-8
+27-Jan-2019 20:17:48.067 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:17:48.073 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:17:48.081 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:17:48.121 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:17:48.131 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:17:48.140 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:17:48.153 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__query_Title_0='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE (instr("t"."Title", @__query_Title_0) > 0) OR (@__query_Title_0 = '')
+27-Jan-2019 20:20:28.499 +00:00 [INF] Starting web host
+27-Jan-2019 20:20:30.839 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:20:31.393 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:20:31.499 +00:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:20:31.519 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:20:31.525 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:20:33.275 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:20:33.510 +00:00 [INF] Request finished in 235.4513ms 301 
+27-Jan-2019 20:20:33.515 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:20:33.655 +00:00 [INF] Request finished in 139.609ms 200 text/html
+27-Jan-2019 20:20:33.735 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:20:33.784 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:20:33.784 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:20:33.841 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:20:33.841 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:20:33.848 +00:00 [INF] Request finished in 64.1437ms 200 application/javascript
+27-Jan-2019 20:20:33.856 +00:00 [INF] Request finished in 121.8838ms 200 text/css
+27-Jan-2019 20:20:33.863 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:20:33.876 +00:00 [INF] Request finished in 92.4461ms 200 application/javascript
+27-Jan-2019 20:20:35.257 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:20:35.484 +00:00 [INF] Request finished in 227.698ms 200 application/json;charset=utf-8
+27-Jan-2019 20:20:49.902 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:20:49.954 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:20:50.003 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:20:50.252 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:20:50.281 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:20:50.505 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:20:50.552 +00:00 [INF] Executed DbCommand (14ms) [Parameters=[@__query_Title_1='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE "t"."Title" LIKE @__query_Title_1
+27-Jan-2019 20:20:50.705 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 690.4306ms
+27-Jan-2019 20:20:50.711 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:20:50.717 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at System.String.Join[T](Char separator, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:20:50.860 +00:00 [INF] Request finished in 957.6927ms 500 text/html; charset=utf-8
+27-Jan-2019 20:23:48.994 +00:00 [INF] Starting web host
+27-Jan-2019 20:23:51.271 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:23:51.886 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:23:52.011 +00:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:23:52.028 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:23:52.034 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:23:53.859 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:23:54.059 +00:00 [INF] Request finished in 200.4257ms 301 
+27-Jan-2019 20:23:54.066 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:23:54.200 +00:00 [INF] Request finished in 134.06ms 200 text/html
+27-Jan-2019 20:23:54.216 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:23:54.283 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:23:54.284 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:23:54.350 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:23:54.362 +00:00 [INF] Request finished in 145.9877ms 200 text/css
+27-Jan-2019 20:23:54.393 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:23:54.393 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:23:54.425 +00:00 [INF] Request finished in 140.7721ms 200 application/javascript
+27-Jan-2019 20:23:54.425 +00:00 [INF] Request finished in 141.8068ms 200 application/javascript
+27-Jan-2019 20:23:55.958 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:23:56.208 +00:00 [INF] Request finished in 250.2975ms 200 application/json;charset=utf-8
+27-Jan-2019 20:24:02.258 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:24:02.307 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:24:02.353 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:24:02.583 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:24:02.612 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:24:02.788 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:24:02.832 +00:00 [INF] Executed DbCommand (10ms) [Parameters=[@__Format_1='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE "t"."Title" LIKE @__Format_1
+27-Jan-2019 20:24:02.980 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 614.918ms
+27-Jan-2019 20:24:02.985 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:24:02.989 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at System.String.Join[T](Char separator, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:24:03.119 +00:00 [INF] Request finished in 860.9136ms 500 text/html; charset=utf-8
+27-Jan-2019 20:24:10.256 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=Aq  
+27-Jan-2019 20:24:10.261 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:24:10.267 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:24:10.300 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:24:10.305 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:24:10.314 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:24:10.327 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__Format_1='?' (Size = 2)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE "t"."Title" LIKE @__Format_1
+27-Jan-2019 20:24:10.389 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 116.5245ms
+27-Jan-2019 20:24:10.394 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:24:10.396 +00:00 [ERR] An unhandled exception has occurred while executing the request.
+System.ArgumentNullException: Value cannot be null.
+Parameter name: values
+   at System.String.JoinCore[T](Char* separator, Int32 separatorLength, IEnumerable`1 values)
+   at System.String.Join[T](Char separator, IEnumerable`1 values)
+   at Movies.Api.Controllers.MoviesController.Get(MoviesQuery query) in D:\Excercises\Movies\src\Movies.Api\Controllers\MoviesController.cs:line 30
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at StackifyMiddleware.RequestTracerMiddleware.InvokeAsync(HttpContext context)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+27-Jan-2019 20:24:10.445 +00:00 [INF] Request finished in 189.6199ms 500 text/html; charset=utf-8
+27-Jan-2019 20:26:28.443 +00:00 [INF] Starting web host
+27-Jan-2019 20:26:30.753 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:26:31.304 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:26:31.416 +00:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:26:31.435 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:26:31.443 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:26:33.213 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:26:33.413 +00:00 [INF] Request finished in 199.826ms 301 
+27-Jan-2019 20:26:33.416 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:26:33.623 +00:00 [INF] Request finished in 207.3878ms 200 text/html
+27-Jan-2019 20:26:33.674 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:26:33.698 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:26:33.698 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:26:33.787 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:26:33.790 +00:00 [INF] Request finished in 115.123ms 200 text/css
+27-Jan-2019 20:26:33.796 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:26:33.802 +00:00 [INF] Request finished in 104.4577ms 200 application/javascript
+27-Jan-2019 20:26:33.822 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:26:33.832 +00:00 [INF] Request finished in 135.0135ms 200 application/javascript
+27-Jan-2019 20:26:35.740 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:26:36.029 +00:00 [INF] Request finished in 289.2447ms 200 application/json;charset=utf-8
+27-Jan-2019 20:26:39.422 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:26:39.461 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:26:39.512 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:26:39.806 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:26:39.855 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:26:40.297 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:26:40.329 +00:00 [INF] Executed DbCommand (12ms) [Parameters=[@__Format_1='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE "t"."Title" LIKE @__Format_1
+27-Jan-2019 20:26:40.405 +00:00 [INF] Return Movies with Titles: Aquaman
+27-Jan-2019 20:26:40.412 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 586.6133ms.
+27-Jan-2019 20:26:40.438 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Movies.Api.Contracts.Models.MovieDTO, Movies.Api.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+27-Jan-2019 20:26:40.465 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 943.71750000000009ms
+27-Jan-2019 20:26:40.472 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:26:40.478 +00:00 [INF] Request finished in 1055.9591ms 200 application/json; charset=utf-8
+27-Jan-2019 20:41:13.713 +00:00 [INF] Starting web host
+27-Jan-2019 20:41:16.086 +00:00 [INF] User profile is available. Using 'C:\Users\Herki\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+27-Jan-2019 20:41:16.735 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:41:16.850 +00:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:41:16.867 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:41:16.875 +00:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT COUNT(*) FROM "sqlite_master" WHERE "type" = 'table' AND "rootpage" IS NOT NULL;
+27-Jan-2019 20:41:18.572 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/  
+27-Jan-2019 20:41:18.722 +00:00 [INF] Request finished in 151.0098ms 301 
+27-Jan-2019 20:41:18.728 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/index.html  
+27-Jan-2019 20:41:18.856 +00:00 [INF] Request finished in 127.4253ms 200 text/html
+27-Jan-2019 20:41:18.870 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui.css  
+27-Jan-2019 20:41:18.916 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-bundle.js  
+27-Jan-2019 20:41:18.922 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger-ui-standalone-preset.js  
+27-Jan-2019 20:41:18.997 +00:00 [INF] Sending file. Request path: '/swagger-ui-standalone-preset.js'. Physical path: 'N/A'
+27-Jan-2019 20:41:18.997 +00:00 [INF] Sending file. Request path: '/swagger-ui.css'. Physical path: 'N/A'
+27-Jan-2019 20:41:19.012 +00:00 [INF] Request finished in 89.3175ms 200 application/javascript
+27-Jan-2019 20:41:19.018 +00:00 [INF] Request finished in 147.3725ms 200 text/css
+27-Jan-2019 20:41:19.023 +00:00 [INF] Sending file. Request path: '/swagger-ui-bundle.js'. Physical path: 'N/A'
+27-Jan-2019 20:41:19.038 +00:00 [INF] Request finished in 121.2197ms 200 application/javascript
+27-Jan-2019 20:41:20.378 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/swagger/v1/swagger.json  
+27-Jan-2019 20:41:20.570 +00:00 [INF] Request finished in 192.1187ms 200 application/json;charset=utf-8
+27-Jan-2019 20:41:24.101 +00:00 [INF] Request starting HTTP/1.1 GET https://localhost:5001/api/Movies?Title=aq  
+27-Jan-2019 20:41:24.138 +00:00 [INF] Executing endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:41:24.180 +00:00 [INF] Route matched with {action = "Get", controller = "Movies"}. Executing action Movies.Api.Controllers.MoviesController.Get (Movies.Api)
+27-Jan-2019 20:41:24.416 +00:00 [INF] Executing action method Movies.Api.Controllers.MoviesController.Get (Movies.Api) with arguments (["Movies.Api.Contracts.Queries.MoviesQuery"]) - Validation state: "Valid"
+27-Jan-2019 20:41:24.453 +00:00 [INF] Entity Framework Core 2.2.1-servicing-10028 initialized 'ApiContext' using provider 'Microsoft.EntityFrameworkCore.Sqlite' with options: None
+27-Jan-2019 20:41:24.653 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+PRAGMA foreign_keys=ON;
+27-Jan-2019 20:41:24.686 +00:00 [INF] Executed DbCommand (9ms) [Parameters=[@__Format_1='?' (Size = 4)], CommandType='"Text"', CommandTimeout='30']
+SELECT "t"."Id", "t"."Title", "t"."RunningTime", "t"."YearOfRelease", (
+    SELECT AVG(CAST("r"."Rating" AS REAL))
+    FROM "Ratings" AS "r"
+    WHERE "t"."Id" = "r"."MovieId"
+) AS "AverageRating"
+FROM "Movies" AS "t"
+WHERE "t"."Title" LIKE @__Format_1
+27-Jan-2019 20:41:24.753 +00:00 [INF] Return Movies with Titles: Aquaman
+27-Jan-2019 20:41:24.759 +00:00 [INF] Executed action method Movies.Api.Controllers.MoviesController.Get (Movies.Api), returned result Microsoft.AspNetCore.Mvc.OkObjectResult in 319.30240000000003ms.
+27-Jan-2019 20:41:24.777 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[Movies.Api.Contracts.Models.MovieDTO, Movies.Api.Contracts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+27-Jan-2019 20:41:24.802 +00:00 [INF] Executed action Movies.Api.Controllers.MoviesController.Get (Movies.Api) in 603.65820000000008ms
+27-Jan-2019 20:41:24.806 +00:00 [INF] Executed endpoint 'Movies.Api.Controllers.MoviesController.Get (Movies.Api)'
+27-Jan-2019 20:41:24.810 +00:00 [INF] Request finished in 709.9979ms 200 application/json; charset=utf-8
